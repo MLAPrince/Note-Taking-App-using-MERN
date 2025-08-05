@@ -72,7 +72,7 @@ NODE_ENV=development
 ## Getting Started
 
 1. Copy `.env.example` (if available) to `.env` and fill in your values.
-2. Follow the backend and frontend setup instructions above.
+2. Follow the backend and frontend setup instructions given below.
 ### Backend Setup
 
 1. Install dependencies:
