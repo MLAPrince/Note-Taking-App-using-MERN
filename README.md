@@ -52,7 +52,27 @@ frontend/
 - MongoDB instance
 - Upstash Redis credentials
 
-### Configure .env file in the /backend/src/.env with your own mongo db uri and upstash, redish url and token
+## Environment Variables
+
+Before running the app, you must configure the following fields in `backend/.env` with your own credentials:
+
+```
+MONGO_URI=your_mongodb_uri
+UPSTASH_REDIS_REST_URL=your_upstash_redis_rest_url
+UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_rest_token
+PORT=3000
+NODE_ENV=development
+```
+
+**Note:**  
+- Replace `your_mongodb_uri` with your own MongoDB connection string.
+- Replace `your_upstash_redis_rest_url` and `your_upstash_redis_rest_token` with your Upstash Redis REST API credentials.
+- Never commit your actual credentials to public repositories.
+
+## Getting Started
+
+1. Copy `.env.example` (if available) to `.env` and fill in your values.
+2. Follow the backend and frontend setup instructions above.
 ### Backend Setup
 
 1. Install dependencies:
