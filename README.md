@@ -34,12 +34,14 @@ frontend/
 ## Features
 
 - **Backend**
+
   - RESTful API for notes (`GET`, `POST`, `PUT`, `DELETE`)
   - MongoDB for data storage ([`connectDB`](backend/src/config/db.js))
   - Rate limiting via Upstash Redis ([`rateLimiter`](backend/src/middleware/rateLimiter.js))
   - Express server ([`server.js`](backend/src/server.js))
 
 - **Frontend**
+
   - React SPA with routing ([`App.jsx`](frontend/src/App.jsx))
   - Toast notifications
   - TailwindCSS and DaisyUI for styling
@@ -52,7 +54,7 @@ frontend/
 - MongoDB instance
 - Upstash Redis credentials
 
-## Environment Variables
+### Environment Variables
 
 Before running the app, you must configure the following fields in `backend/.env` with your own credentials:
 
@@ -64,46 +66,36 @@ PORT=3000
 NODE_ENV=development
 ```
 
-**Note:**  
+**Note:**
+
 - Replace `your_mongodb_uri` with your own MongoDB connection string.
 - Replace `your_upstash_redis_rest_url` and `your_upstash_redis_rest_token` with your Upstash Redis REST API credentials.
 - Never commit your actual credentials to public repositories.
 
-## Getting Started
-
-1. Copy `.env.example` (if available) to `.env` and fill in your values.
-2. Follow the backend and frontend setup instructions given below.
 ### Backend Setup
 
 1. Install dependencies:
-    ```sh
-    cd backend
-    npm install
-    ```
-2. Create a `.env` file with:
-    ```
-    MONGO_URI=your_mongodb_uri
-    PORT=3000
-    NODE_ENV=development
-    ```
-    Upstash Redis credentials should be set as environment variables.
-
+   ```sh
+   cd backend
+   npm install
+   ```
+2. Create a `.env` file with your environment variables (see above).
 3. Start the server:
-    ```sh
-    npm run dev
-    ```
+   ```sh
+   npm run dev
+   ```
 
 ### Frontend Setup
 
 1. Install dependencies:
-    ```sh
-    cd frontend
-    npm install
-    ```
+   ```sh
+   cd frontend
+   npm install
+   ```
 2. Start the development server:
-    ```sh
-    npm run dev
-    ```
+   ```sh
+   npm run dev
+   ```
 3. Visit [http://localhost:5173](http://localhost:5173)
 
 ## API Endpoints
@@ -117,3 +109,4 @@ NODE_ENV=development
 ## License
 
 MIT
+
