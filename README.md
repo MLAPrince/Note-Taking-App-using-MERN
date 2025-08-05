@@ -52,6 +52,7 @@ frontend/
 - MongoDB instance
 - Upstash Redis credentials
 
+### Configure .env file in the /backend/src/.env with your own mongo db uri and upstash, redish url and token
 ### Backend Setup
 
 1. Install dependencies:
