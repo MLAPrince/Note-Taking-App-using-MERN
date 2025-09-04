@@ -1,0 +1,23 @@
+{
+  "name": "note-taking-app_mern",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "install": "npm install --prefix backend && npm install --prefix frontend",
+    "start": "npm run start --prefix backend",
+    "dev": "concurrently \"npm run start --prefix backend\" \"npm run dev --prefix frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MLAPrince/Note-Taking-App-using-MERN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MLAPrince/Note-Taking-App-using-MERN/issues"
+  },
+  "homepage": "https://github.com/MLAPrince/Note-Taking-App-using-MERN#readme",
+  "description": ""
+}
