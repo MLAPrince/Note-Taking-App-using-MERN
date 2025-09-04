@@ -14,13 +14,13 @@ Experience the app live:
 Here are some glimpses of the "my Notes" application in action:
 
 ### Home Page (No Notes)
-![Home Page - No Notes](/Note%20App%201.jpg)
+![Home Page - No Notes](frontend/public/Note%20App%201.jpg)
 
 ### Create Note Page
-![Create Note Page](/Note%20App%202.jpg)
+![Create Note Page](frontend/public/Note%20App%202.jpg)
 
 ### Home Page (Notes Created)
-![Home Page - Notes Created](/Note%20App%203.jpg)
+![Home Page - Notes Created](frontend/public/Note%20App%203.jpg)
 
 ## Features
 
