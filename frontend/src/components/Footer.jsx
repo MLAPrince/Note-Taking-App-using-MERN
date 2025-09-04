@@ -18,7 +18,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-neutral-900 text-white py-8 border-t border-neutral-800">
+    <footer className="w-full bg-base-300 text-white py-8 border-t border-neutral-800">
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left mb-8">
           {/* Section 1 (Left): my Notes + Social Icons */}
@@ -52,13 +52,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white mb-4">Contact Me</h3>
             <form onSubmit={handleContactSubmit} className="space-y-4">
               <div className="mb-4">
-                <input type="text" name="name" placeholder="Your Name" className="input input-bordered w-full bg-neutral-800 text-white border-neutral-700 focus:border-lime-400" required />
+                <input type="text" name="name" placeholder="Your Name" className="input input-bordered w-full bg-base-500 text-white border-neutral-700 focus:border-lime-400" required />
               </div>
               <div className="mb-4">
-                <input type="email" name="email" placeholder="Your Email" className="input input-bordered w-full bg-neutral-800 text-white border-neutral-700 focus:border-lime-400" required />
+                <input type="email" name="email" placeholder="Your Email" className="input input-bordered w-full bg-base-500 text-white border-neutral-700 focus:border-lime-400" required />
               </div>
               <div className="mb-4">
-                <textarea name="message" placeholder="Your Message" className="textarea textarea-bordered w-full bg-neutral-800 text-white border-neutral-700 focus:border-lime-400 h-24" required></textarea>
+                <textarea name="message" placeholder="Your Message" className="textarea textarea-bordered w-full bg-base-500 text-white border-neutral-700 focus:border-lime-400 h-24" required></textarea>
               </div>
               <button type="submit" className="btn btn-primary w-full bg-lime-600 hover:bg-lime-700 text-white border-none">Send Message</button>
             </form>
@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
         
         {/* Copyright Section */}
-        <div className="border-t border-neutral-800 pt-4">
+        <div className="border-t border-neutral-800 pt-7">
           <div className="text-center text-gray-500 text-sm">
             my Notes &copy; {currentYear} Made with <Heart className="inline-block w-4 h-4 text-red-500 mx-1" /> by Muhammad Mohiuddin. All rights reserved.
           </div>
