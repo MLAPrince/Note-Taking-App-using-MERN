@@ -17,14 +17,24 @@ const PORT = process.env.PORT || 3000;
 
 const __dirname = path.resolve();
 
-if(process.env.NODE_ENV !== "production") {
-    app.use(cors(
-    {
-        origin: "http://localhost:5173",
-    }
-));
+// Define allowed origins for CORS
+const allowedOrigins = [
+    "http://localhost:5173", // For local frontend development
+    process.env.FRONTEND_URL // For deployed frontend
+];
 
-}
+app.use(cors({
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
+            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    },
+    credentials: true // If you're sending cookies or authorization headers
+}));
 
 app.use(express.json());
 app.use(rateLimiter);
