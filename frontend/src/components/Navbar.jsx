@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import { Chrome } from '@uiw/react-color';
 import { Link } from "react-router";
 import { PlusIcon } from "lucide-react";
-// import { Link } from "react-router-dom";
 import { Pencil, NotebookText, BookOpen } from "lucide-react"; // optional icons
 
-const Navbar = () => {
+// Accepts currentColor (Hex), setBodyColor, and setBodyAlpha
+const Navbar = ({ currentColor, setBodyColor, setBodyAlpha }) => {
+  const [showPicker, setShowPicker] = useState(false);
+  
+  const closePicker = () => {
+    setShowPicker(false);
+  };
+
+  const handleChange = (newColor) => {
+    if (setBodyColor) {
+      // Update the main color with the HEX value
+      // This ensures the color picker's main selector and hue slider work reliably.
+      setBodyColor(newColor.hex);
+    }
+    
+    if (setBodyAlpha && newColor.rgb.a !== undefined) {
+        // Update the alpha/opacity state separately
+        // This makes the opacity slider functional by saving its value (0 to 1)
+        setBodyAlpha(newColor.rgb.a);
+    }
+  };
+
   return (
-    <nav className="text-white bg-gray-800 w-screen ">
+    <nav className="text-white bg-gray-800 w-screen relative z-30">
       <div className="md:mx-auto md:max-w-[80%] p-4 flex justify-between items-center">
         <Link
           to="/"
@@ -23,13 +44,42 @@ const Navbar = () => {
           </span>
         </Link>
 
-        <Link
-          to="/create"
-          className="flex items-center gap-2 px-3 py-2 rounded-md md:mr-0 mr-5 bg-gray-700/30 backdrop-blur text-lime-500 border border-lime-600 hover:bg-lime-600 hover:text-black transition duration-300 ease-in-out"
-        >
-          <PlusIcon className="h-5 w-5" />
-          <span className="hidden md:inline font-semibold">Create Note</span>
-        </Link>
+        <div className="flex gap-3 items-center">
+          <Link
+            to="/create"
+            className="flex items-center gap-2 px-3 py-2 rounded-md bg-gray-700/30 backdrop-blur text-lime-500 border border-lime-600 hover:bg-lime-600 hover:text-black transition duration-300 ease-in-out"
+          >
+            <PlusIcon className="h-5 w-5" />
+            <span className="hidden md:inline font-semibold">Create Note</span>
+          </Link>
+
+          <div className="relative">
+            <button
+              className="p-2 rounded bg-transparent text-white border border-transparent hover:border-lime-600 transition"
+              onClick={() => setShowPicker(!showPicker)}
+            >
+              🎨 Theme
+            </button>
+
+            {/* Transparent overlay to handle clicking outside the picker to close it */}
+            {showPicker && (
+                <div 
+                    className="fixed inset-0 z-40" 
+                    onClick={closePicker} 
+                />
+            )}
+
+            {showPicker && (
+              <div className="absolute z-50 mt-2 right-0">
+                {/* Passing the simple currentColor (Hex) value */}
+                <Chrome 
+                    color={currentColor || '#0f172a'} 
+                    onChange={handleChange} 
+                />
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </nav>
   );
